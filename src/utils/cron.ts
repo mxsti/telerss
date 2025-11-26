@@ -14,9 +14,9 @@ export async function postFeeds(bot: Bot) {
             if (parsedFeed.latestPubDate > feed.latestPubDate) {
                 await updatePubDate(parsedFeed.latestPubDate, feed.id);
 
-                await bot.api.sendMessage(user.id, `Neuer Artikel!`);
-                await bot.api.sendMessage(user.id, `${parsedFeed.items[0]?.contentSnippet}`);
-                await bot.api.sendMessage(user.id, `${parsedFeed.items[0]?.link}`);
+                await bot.api.sendMessage(Number(user.id), `Neuer Artikel!`);
+                await bot.api.sendMessage(Number(user.id), `${parsedFeed.items[0]?.contentSnippet}`);
+                await bot.api.sendMessage(Number(user.id), `${parsedFeed.items[0]?.link}`);
 
                 logger.info(`posted update for ${user.id} - ${feed.url}`)
             }
