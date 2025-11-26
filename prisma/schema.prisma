@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "cockroachdb"
+}
+
+model User {
+  id    BigInt @id
+  name  String
+  feeds Feed[]
+}
+
+model Feed {
+  id            BigInt   @id @default(autoincrement())
+  description   String?
+  url           String
+  latestPubDate DateTime
+  User          User     @relation(fields: [userId], references: [id])
+  userId        BigInt
+
+  @@unique([url, userId])
+}
