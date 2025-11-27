@@ -1,27 +1,32 @@
-<img src="./logo.png" alt="drawing" width="400"/>
+<img src="./logo.png" alt="drawing" width="400" style="display: block; margin-left: auto; margin-right: auto"/>
 
-# Overview
-TeleRSS is a very simple Telegram Bot where you can subscribe to different RSS Feeds. You get notified by the bot
-when a new Article was published to the Feed.
+# TeleRSS
 
-# Hosting
-You can use my hosted instance of the Bot. It can be found in Telegram under the username:   
+## Overview
+
+**TeleRSS** is a lightweight Telegram bot that lets you subscribe to any RSS feed.  
+Whenever a new article is published, the bot sends you a notification directly in Telegram.
+
+---
+
+## Hosting
+
+You can use the public instance of the bot, available on Telegram under the username:
 
 **@mxsti_rss_feed_bot**
 
-You could also host it yourself. You can either build an image with the Dockerfile or use the newest Image 
-from the Repository. 
+If you prefer to host it yourself, you can either build the Docker image using the provided `Dockerfile` or pull the latest prebuilt image from the repository.
 
-There are two conditions for the Bot to work.
-1) You need a Telegram Bot Token. [Here](https://core.telegram.org/bots/tutorial) you can find an easy tutorial.
-2) You need a database. The structure of the Database is defined in the Prisma Migrations. You need to provide the Database URL though.
+To run your own instance, you need two things:
 
-Add these two Values in a .env File (you can find an example in the Repo) and run the image with <code>docker run --env-file .env</code> 
+1. **Telegram Bot Token**  
+   You can follow this simple [tutorial](https://core.telegram.org/bots/tutorial) to create one.
 
+2. **Database**  
+   The database schema is defined using Prisma migrations.  
+   You only need to provide a database connection URL.
 
-# Usage
+Create a `.env` file containing both values (an example is included in the repository) and start the container using:
 
-| Command          | Functionality                                                    |
-|:-----------------|:-----------------------------------------------------------------|
-| /sub {RSS URL}   | Subscribes to a RSS Feed and checks if the Bot can grab/parse it |
-| /unsub {RSS URL} | Unsubscribes from a RSS Feed                                     |
+```bash
+docker run --env-file .env <image>
