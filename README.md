@@ -1,4 +1,4 @@
-![logo](./logo.png)
+<img src="./logo.png" alt="drawing" width="400"/>
 
 # Overview
 TeleRSS is a very simple Telegram Bot where you can subscribe to different RSS Feeds. You get notified by the bot
