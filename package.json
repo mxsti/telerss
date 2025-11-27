@@ -1,7 +1,7 @@
 {
-  "name": "rss-feed-bot",
+  "name": "telerss",
   "version": "0.0.1",
-  "description": "Discord Bot, fetching different RSS Feeds and posting News",
+  "description": "Telegram Bot, fetching different RSS Feeds and posting News",
   "license": "ISC",
   "author": "",
   "type": "module",
