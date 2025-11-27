@@ -1,22 +1,13 @@
-FROM node:20-alpine AS builder
+FROM node:20-alpine
 
 WORKDIR /app
 COPY package*.json ./
-COPY prisma ./prisma
 RUN npm ci
-RUN npx prisma generate
 
 COPY . .
+
+RUN npx prisma generate
+
 RUN npm run build
 
-FROM node:20-alpine AS production
-
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci --only=production
-
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/generated ./generated
-COPY prisma ./prisma
-
-CMD ["node", "dist/src/index.js"]
+CMD ["node", "dist/srcindex.js"]
