@@ -30,3 +30,11 @@ Create a `.env` file containing both values (an example is included in the repos
 
 ```bash
 docker run --env-file .env <image>
+```
+
+## Usage
+
+| Command          | Functionality                                                    |
+|:-----------------|:-----------------------------------------------------------------|
+| /sub {RSS URL}   | Subscribes to a RSS Feed and checks if the Bot can grab/parse it |
+| /unsub {RSS URL} | Unsubscribes from a RSS Feed                                     |
